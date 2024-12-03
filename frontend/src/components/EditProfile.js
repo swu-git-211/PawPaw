@@ -4,7 +4,6 @@ import { Box, TextField, Button, Select, MenuItem, FormControlLabel, Checkbox } 
 
 const EditProfile = ({ user, onSave }) => {
   const [formData, setFormData] = useState({
-    phone: '',
     birthday: '',
     bio: '',
     petTypes: [],
@@ -15,7 +14,6 @@ const EditProfile = ({ user, onSave }) => {
   useEffect(() => {
     if (user) {
       setFormData({
-        phone: user.phone || '',
         birthday: user.birthday || '',
         bio: user.bio || '',
         petTypes: user.petTypes || [],
@@ -40,7 +38,6 @@ const EditProfile = ({ user, onSave }) => {
       }
 
       const data = new FormData();
-      data.append('phone', formData.phone);
       data.append('bio', formData.bio);
       data.append('petTypes', formData.petTypes);
       data.append('birthday', formData.birthday);
@@ -78,9 +75,9 @@ const EditProfile = ({ user, onSave }) => {
           <img src={`${process.env.REACT_APP_API_URL}${profileImage}`} alt="Profile" style={{ width: '100px', height: '100px', objectFit: 'cover' }} />
         )}
         <TextField
-          label="Phone"
-          name="phone"
-          value={formData.phone}
+          label="Bio"
+          name="bio"
+          value={formData.bio}
           onChange={handleChange}
           fullWidth
           margin="dense"
@@ -94,14 +91,6 @@ const EditProfile = ({ user, onSave }) => {
           fullWidth
           margin="dense"
           InputLabelProps={{ shrink: true }}
-        />
-        <TextField
-          label="Bio"
-          name="bio"
-          value={formData.bio}
-          onChange={handleChange}
-          fullWidth
-          margin="dense"
         />
         <Select
           multiple

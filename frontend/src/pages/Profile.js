@@ -98,7 +98,6 @@ const Profile = () => {
             <div style={styles.aboutSection}>
               <h3>About Me</h3>
               {user.showEmail && <p><strong>Email:</strong> {user.email}</p>}
-              <p><strong>Phone:</strong> {user.phone}</p>
               <p><strong>Bio:</strong> {user.bio}</p>
               <p><strong>Birthday:</strong> {user.birthday ? new Date(user.birthday).toLocaleDateString() : 'Not provided'}</p>
               <p><strong>Pet Types:</strong> {user.petTypes ? user.petTypes.join(', ') : 'No pets added'}</p>
