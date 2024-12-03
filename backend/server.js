@@ -17,12 +17,13 @@ dotenv.config();
 // Express app
 const app = express();
 
+const jwtSecret = process.env.JWT_SECRET || 'defaultSecretKey';
 
 app.use('/uploads', express.static(path.join(__dirname, '.', 'uploads')));
 
 app.use(morgan('dev'));
 app.use(cors({
-    origin: "*",
+    origin: 'http://3.214.235.164',
     credentials: true, // ให้แน่ใจว่า URL ตรงกับที่ frontend ใช้
 }));
 
