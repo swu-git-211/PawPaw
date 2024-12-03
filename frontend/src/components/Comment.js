@@ -37,6 +37,7 @@ const Comment = ({ postId, initialComments }) => {
     } else {
       console.error("User ID is not set in localStorage");
     }
+    // eslint-disable-next-line
   }, [initialComments]);
 
   // Handle submitting a reply to a comment
