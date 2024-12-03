@@ -20,6 +20,7 @@
     "react-router-dom": "^6.27.0",
     "react-slick": "^0.30.2",
     "slick-carousel": "^1.8.1",
+    "homepage": "/pawpaw",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -69,6 +70,5 @@
     "moduleNameMapper": {
       "\\.(css|less|sass|scss)$": "identity-obj-proxy"
     }
-  },
-  "proxy": "http://localhost:5000"
+  }
 }
