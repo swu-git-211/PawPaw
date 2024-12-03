@@ -35,11 +35,12 @@ connectDB();
 //readdirSync('./routes').map((r) => app.use('/pawpaw', require('./routes/' + r)));
 
 // Dynamically load routes
-readdirSync('./routes').forEach((file) => {
-    const routePath = path.join(__dirname, 'routes', file);
-    console.log(`Loading route: ${file}`);
-    app.use('/pawpaw', require(routePath));
-  });
+readdirSync(path.join(__dirname, 'routes')).forEach((file) => {
+  const routePath = path.join(__dirname, 'routes', file);
+  console.log(`Loading route: ${file}`);
+  app.use('/pawpaw', require(routePath));
+});
+
 
 //เพื่อlike
 const postRoutes = require('./routes/post');
