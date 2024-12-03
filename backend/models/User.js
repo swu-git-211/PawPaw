@@ -7,7 +7,7 @@ const UserSchema = new mongoose.Schema({
   password: { type: String, required: true },
   phone: { 
       type: String, 
-      default: 'No phone number provided',
+      default: '',
       validate: {
         validator: function(v) {
           return /^[0-9]{10,15}$/.test(v); // ตรวจสอบหมายเลขโทรศัพท์ให้มีตัวเลข 10-15 หลัก
