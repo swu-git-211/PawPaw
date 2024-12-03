@@ -34,6 +34,18 @@ connectDB();
 //routes auto
 //readdirSync('./routes').map((r) => app.use('/pawpaw', require('./routes/' + r)));
 
+
+// เพิ่ม route สำหรับ root URL
+app.get('/', (req, res) => {
+  res.send('API is running...');
+});
+
+// เพิ่ม route สำหรับ /pawpaw
+app.get('/pawpaw', (req, res) => {
+  res.send('Welcome to PawPaw API!');
+});
+
+
 // Dynamically load routes
 readdirSync('./routes').forEach((file) => {
     const routePath = path.join(__dirname, 'routes', file);
