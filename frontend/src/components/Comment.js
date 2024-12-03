@@ -15,7 +15,7 @@ const Comment = ({ postId, initialComments }) => {
 
   const fetchComments = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/pawpaw/posts/${postId}/comments`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/posts/${postId}/comments`);
       if (response.data.success) {
         setComments(response.data.comments);
       }
@@ -52,7 +52,7 @@ const Comment = ({ postId, initialComments }) => {
 
         // Sending reply to the backend
         const response = await axios.post(
-          `http://localhost:5000/pawpaw/posts/${postId}/comment`,
+          `${process.env.REACT_APP_API_URL}/posts/${postId}/comment`,
           {
             content: replyContent,
             parentCommentId: commentId, // Specify parentCommentId to indicate it's a reply
@@ -93,7 +93,7 @@ const Comment = ({ postId, initialComments }) => {
     }
     try {
       const response = await axios.post(
-        `http://localhost:5000/pawpaw/comments/${commentId}/like`,
+        `${process.env.REACT_APP_API_URL}/comments/${commentId}/like`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -132,7 +132,7 @@ const Comment = ({ postId, initialComments }) => {
         return;
       }
   
-      const response = await axios.delete(`http://localhost:5000/pawpaw/comment/${commentId}`, {
+      const response = await axios.delete(`${process.env.REACT_APP_API_URL}/comment/${commentId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
   

@@ -50,7 +50,7 @@ const EditProfile = ({ user, onSave }) => {
         data.append('profileImage', profileImage); // ส่งไฟล์ภาพ
       }
 
-      const response = await axios.put('http://localhost:5000/pawpaw/profile', data, {
+      const response = await axios.put(`${process.env.REACT_APP_API_URL}/profile`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
@@ -75,7 +75,7 @@ const EditProfile = ({ user, onSave }) => {
       <h2>Edit Profile</h2>
       <form>
         {profileImage && (
-          <img src={`http://localhost:5000${profileImage}`} alt="Profile" style={{ width: '100px', height: '100px', objectFit: 'cover' }} />
+          <img src={`${process.env.REACT_APP_API_URL}${profileImage}`} alt="Profile" style={{ width: '100px', height: '100px', objectFit: 'cover' }} />
         )}
         <TextField
           label="Phone"

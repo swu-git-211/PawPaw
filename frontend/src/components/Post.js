@@ -33,7 +33,7 @@ const Post = ({ post }) => {
     
     const fetchComments = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/pawpaw/posts/${postState._id}/comments`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/posts/${postState._id}/comments`);
         setComments(response.data.comments);  // Set comments from the backend response
       } catch (error) {
         console.error('Failed to fetch comments:', error);
@@ -61,7 +61,7 @@ const Post = ({ post }) => {
       }
   
       const response = await axios.post(
-        `http://localhost:5000/pawpaw/posts/${postState._id}/like`,
+        `${process.env.REACT_APP_API_URL}/posts/${postState._id}/like`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -101,7 +101,7 @@ const Post = ({ post }) => {
         }
 
         // Send the comment to the backend
-        const response = await axios.post(`http://localhost:5000/pawpaw/posts/${postState._id}/comment`, { content: comment }, {
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/posts/${postState._id}/comment`, { content: comment }, {
           headers: { Authorization: `Bearer ${token}` }
         });
         console.log(postState._id)
@@ -130,7 +130,7 @@ const Post = ({ post }) => {
         return;
       }
   
-      const response = await axios.delete(`http://localhost:5000/pawpaw/posts/${postId}`, {
+      const response = await axios.delete(`${process.env.REACT_APP_API_URL}/posts/${postId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
   
@@ -169,7 +169,7 @@ const Post = ({ post }) => {
         </Typography>
         {postState.images && postState.images.length > 0 && (
           <img
-            src={`http://localhost:5000${postState.images[0].url}`}// ใช้ URL ของรูปภาพจาก backend
+            src={`${process.env.REACT_APP_API_URL}${postState.images[0].url}`}// ใช้ URL ของรูปภาพจาก backend
             alt="Post"
             style={{ width: '100%', borderRadius: '4px' }}
           />

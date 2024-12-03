@@ -29,7 +29,7 @@ const Profile = () => {
 
     // ดึงข้อมูลโปรไฟล์ผู้ใช้
     axios
-      .get('http://localhost:5000/pawpaw/profile', {
+      .get(`${process.env.REACT_APP_API_URL}/profile`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -46,7 +46,7 @@ const Profile = () => {
 
     // ดึงโพสต์ของผู้ใช้
     axios
-      .get(`http://localhost:5000/pawpaw/posts/user/${userId}`, {
+      .get(`${process.env.REACT_APP_API_URL}/posts/user/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
