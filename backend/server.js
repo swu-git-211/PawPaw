@@ -34,10 +34,11 @@ connectDB();
 //readdirSync('./routes').map((r) => app.use('/pawpaw', require('./routes/' + r)));
 
 // Dynamically load routes
+const prefix = '/pawpaw';
 readdirSync(path.join(__dirname, 'routes')).forEach((file) => {
-  const routePath = path.join(__dirname, 'routes', file);
-  console.log(`Loading route: ${file}`);
-  app.use('/pawpaw', require(routePath));
+    const routePath = path.join(__dirname, 'routes', file);
+    console.log(`Loading route: ${file}`);
+    app.use(prefix, require(routePath));
 });
 
 
