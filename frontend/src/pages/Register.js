@@ -28,7 +28,7 @@ const Register = () => {
     }
   
     try {
-      const response = await axios.post(`http://3.214.235.164/pawpaw/register`, formData);
+      const response = await axios.post(`http://3.214.235.164:5000/pawpaw/register`, formData);
       if (response.data.success) {
         alert('Registration successful!');
         navigate('/login');  // นำไปยังหน้า Login
