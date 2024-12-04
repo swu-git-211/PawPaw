@@ -15,7 +15,7 @@ const Login = ({ onLogin }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/login`, formData);
+      const response = await axios.post(`http://3.214.235.164/pawpaw/login`, formData);
       if (response.data.success) {
         alert('Login successful!');
         

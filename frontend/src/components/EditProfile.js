@@ -47,7 +47,7 @@ const EditProfile = ({ user, onSave }) => {
         data.append('profileImage', profileImage); // ส่งไฟล์ภาพ
       }
 
-      const response = await axios.put(`${process.env.REACT_APP_API_URL}/profile`, data, {
+      const response = await axios.put(`http://3.214.235.164/pawpaw/profile`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',

@@ -61,7 +61,7 @@ const Post = ({ post }) => {
       }
   
       const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/posts/${postState._id}/like`,
+        `http://3.214.235.164/pawpaw/posts/${postState._id}/like`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );

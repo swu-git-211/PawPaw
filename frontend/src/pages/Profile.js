@@ -29,7 +29,7 @@ const Profile = () => {
 
     // ดึงข้อมูลโปรไฟล์ผู้ใช้
     axios
-      .get(`${process.env.REACT_APP_API_URL}/profile`, {
+      .get(`http://3.214.235.164:5000/pawpaw/profile`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

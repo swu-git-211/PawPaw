@@ -31,7 +31,7 @@ const CreatePost = ({ onAddPost }) => {
         formData.append('image', images[0].file); // ส่งไฟล์แรกในอาร์เรย์
       }
 
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/create`, 
+      const response = await axios.post(`http://3.214.235.164/pawpaw/create`, 
         formData, 
         { 
           headers: { 
