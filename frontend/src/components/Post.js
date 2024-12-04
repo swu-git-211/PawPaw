@@ -33,7 +33,7 @@ const Post = ({ post }) => {
     
     const fetchComments = async () => {
       try {
-        const response = await axios.get(`http://3.214.235.164:5000/pawpaw/posts/${postState._id}/comments`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/pawpaw/posts/${postState._id}/comments`);
         setComments(response.data.comments);  // Set comments from the backend response
       } catch (error) {
         console.error('Failed to fetch comments:', error);
@@ -61,7 +61,7 @@ const Post = ({ post }) => {
       }
   
       const response = await axios.post(
-        `http://3.214.235.164:5000/pawpaw/posts/${postState._id}/like`,
+        `${process.env.REACT_APP_API_URL}/pawpaw/posts/${postState._id}/like`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -101,7 +101,7 @@ const Post = ({ post }) => {
         }
 
         // Send the comment to the backend
-        const response = await axios.post(`http://3.214.235.164:5000/pawpaw/posts/${postState._id}/comment`, { content: comment }, {
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/pawpaw/posts/${postState._id}/comment`, { content: comment }, {
           headers: { Authorization: `Bearer ${token}` }
         });
         console.log(postState._id)
@@ -130,7 +130,7 @@ const Post = ({ post }) => {
         return;
       }
   
-      const response = await axios.delete(`http://3.214.235.164:5000/pawpaw/posts/${postId}`, {
+      const response = await axios.delete(`${process.env.REACT_APP_API_URL}/pawpaw/posts/${postId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
   

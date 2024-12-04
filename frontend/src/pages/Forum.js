@@ -12,7 +12,7 @@ const Forum = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get(`http://3.214.235.164/pawpaw/all`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/pawpaw/all`);
         if (response.data.success) {
           setPosts(response.data.posts);
         }

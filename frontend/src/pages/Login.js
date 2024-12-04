@@ -15,7 +15,7 @@ const Login = ({ onLogin }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`http://3.214.235.164:5000/pawpaw/login`, formData);
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/pawpaw/login`, formData);
       if (response.data.success) {
         alert('Login successful!');
         
@@ -43,7 +43,7 @@ const Login = ({ onLogin }) => {
       alert('Login failed. Please check your username/email and password.');
     }
   };
-  
+  console.log('API URL:', process.env.REACT_APP_API_URL);
 
   return (
     <Box
