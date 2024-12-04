@@ -17,8 +17,6 @@ dotenv.config();
 // Express app
 const app = express();
 
-const jwtSecret = process.env.JWT_SECRET || 'defaultSecretKey';
-
 app.use('/uploads', express.static(path.join(__dirname, '.', 'uploads')));
 
 app.use(morgan('dev'));
