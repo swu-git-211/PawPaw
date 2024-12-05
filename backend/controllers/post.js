@@ -1,6 +1,7 @@
 //post.js controllers
 const Post = require('../models/Post');
 const User = require('../models/User');
+const Comment = require('../models/Comment');
 
 // ฟังก์ชันสร้างโพสต์
 exports.createPost = async (req, res) => {
