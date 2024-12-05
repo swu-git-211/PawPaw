@@ -12,8 +12,6 @@ const userRoutes = require('./routes/user'); // Import userRoutes
 const path = require('path');
 
 
-dotenv.config();
-
 // Express app
 const app = express();
 
@@ -51,6 +49,8 @@ app.use('/pawpaw/comments', commentRoutes);
   
 // ตั้งค่าให้โฟลเดอร์ 'uploads' ของ backend สามารถเข้าถึงได้ผ่าน URL `/uploads`
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+console.log('JWT_SECRET:', process.env.JWT_SECRET);
 
 // Listen for requests
 const PORT = process.env.PORT || 5000;
