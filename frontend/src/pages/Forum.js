@@ -14,13 +14,12 @@ const Forum = () => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/pawpaw/all`);
         if (response.data.success) {
-          setPosts(response.data.posts);
+          // เรียงโพสต์จากล่าสุดไปเก่าสุด
+          const sortedPosts = response.data.posts.sort((a, b) => {
+            return new Date(b.createdAt) - new Date(a.createdAt);
+          });
+          setPosts(sortedPosts); // ตั้งค่าโพสต์ที่เรียงแล้ว
         }
-        // จัดเรียงโพสต์จากล่าสุดไปเก่าสุด
-        const sortedPosts = response.data.posts.sort((a, b) => {
-          return new Date(b.createdAt) - new Date(a.createdAt);
-        });
-        setPosts(sortedPosts);
       } catch (error) {
         console.error('Failed to fetch posts:', error);
       }
