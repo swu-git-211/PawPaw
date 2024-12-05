@@ -51,7 +51,7 @@ The platform is deployed on **AWS EC2**, using:
 2. MongoDB Atlas account (or local MongoDB instance).
 3. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo-url.git
+   git clone https://github.com/swu-git-211/pawpaw.git
 
 ### Backend Setup
 1. Navigate to the backend folder:
