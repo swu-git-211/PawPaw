@@ -16,6 +16,9 @@ const Forum = () => {
         if (response.data.success) {
           setPosts(response.data.posts);
         }
+        // จัดเรียงโพสต์จากล่าสุดไปเก่าสุด
+        const sortedPosts = response.data.posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+          setPosts(sortedPosts);
       } catch (error) {
         console.error('Failed to fetch posts:', error);
       }
