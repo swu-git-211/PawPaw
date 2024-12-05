@@ -53,9 +53,11 @@ const Register = () => {
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#f0f0f0',
+        overflowX: 'auto', // อนุญาตให้เลื่อนในแนวนอน
+        overflowY: 'hidden', // ยังคงตัดในแนวตั้ง
       }}
     >
-      <Grid container sx={{ maxWidth: '900px', height: '500px', boxShadow: 3, borderRadius: '12px', overflow: 'hidden' }}>
+      <Grid container sx={{ maxWidth: '900px', height: '500px', boxShadow: 3, borderRadius: '12px', overflowX: 'auto' }}>
         {/* Left Side - Welcome Back Message */}
         <Grid item xs={12} sm={6} sx={{
             backgroundColor: '#26a69a',
