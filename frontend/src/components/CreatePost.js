@@ -15,6 +15,9 @@ const CreatePost = ({ onAddPost }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting) return; // ป้องกันการกดซ้ำ
+
+    setIsSubmitting(true); // ตั้งสถานะกำลังส่งข้อมูล
 
     const token = localStorage.getItem('token');
     if (!token) {
@@ -49,6 +52,8 @@ const CreatePost = ({ onAddPost }) => {
       }
     } catch (error) {
       console.error('Failed to create post', error);
+    } finally {
+      setIsSubmitting(false); // รีเซ็ตสถานะ
     }
   };
   
@@ -88,13 +93,17 @@ const CreatePost = ({ onAddPost }) => {
         </ImageUploading>
       </CardContent>
       <CardActions sx={{ justifyContent: 'flex-end' }}>
-        <Button 
-          variant="contained" 
-          color="primary" 
-          onClick={handleSubmit}
-        >
-          Post
-        </Button>
+      <Button
+        variant="contained"
+        style={{
+          backgroundColor: '#3CCCCD', // ระบุสีพื้นหลัง
+          color: '#FFFFFF',          // สีข้อความ
+        }}
+        onClick={handleSubmit}
+        disabled={isSubmitting} // ปิดปุ่มเมื่อกำลังส่งข้อมูล
+      >
+        {isSubmitting ? 'Posting...' : 'Post'}
+      </Button>
       </CardActions>
     </Card>
   );

@@ -45,7 +45,9 @@ exports.createPost = async (req, res) => {
 exports.getAllPosts = async (req, res) => {
   try {
     console.log('Fetching all posts...');
-    const posts = await Post.find().populate('userId', 'username');
+    const posts = await Post.find()
+      .populate('userId', 'username')
+      .sort({ createdAt: -1 }); // เรียงจากล่าสุดไปเก่าสุด
     res.status(200).json({ success: true, posts });
   } catch (error) {
     console.error('Error while fetching posts:', error);
