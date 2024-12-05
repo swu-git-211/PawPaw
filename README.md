@@ -90,5 +90,5 @@ Support for multiple languages.
 Implement advanced search and filtering in the forum.
 
 
-# Feel free to clone, explore, and contribute to the PawPaw project!
+Feel free to clone, explore, and contribute to the PawPaw project!
 
