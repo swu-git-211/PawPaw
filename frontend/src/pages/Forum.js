@@ -29,9 +29,10 @@ const Forum = () => {
   }, []);
 
   // Function for adding a new post
+  // เพิ่มโพสต์ใหม่และตั้งไว้ด้านบน
   const handleAddPost = (newPost) => {
-    setPosts([newPost, ...posts]);
-    setOpenCreatePost(false); // Close the CreatePost popup after adding
+    setPosts((prevPosts) => [newPost, ...prevPosts]); // ใส่โพสต์ใหม่ที่ด้านบน
+    setOpenCreatePost(false); // ปิด popup
   };
 
   return (
