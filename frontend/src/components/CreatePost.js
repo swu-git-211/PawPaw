@@ -7,6 +7,8 @@ import axios from 'axios';
 const CreatePost = ({ onAddPost }) => {
   const [content, setContent] = useState('');
   const [images, setImages] = useState([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const navigate = useNavigate();
 
   const handleImageChange = (imageList) => {
