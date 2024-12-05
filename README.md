@@ -55,39 +55,47 @@ The platform is deployed on **AWS EC2**, using:
 
 ### Backend Setup
 1. Navigate to the backend folder:
+    ```bash
    cd pawpaw/backend
 2. Install dependencies:
+    ```bash
     npm install
 3. Create a .env file with the following variables:
+    ```bash
     PORT=5000
     MONGO_URI=<Your MongoDB Atlas URI>
     JWT_SECRET=<Your JWT Secret>
 4. Start the backend server:
+    ```bash
     npm start
 
 ### Frontend Setup
 1. Navigate to the frontend folder:
+    ```bash
     cd pawpaw/frontend
 2. Install dependencies:
+    ```bash
     npm install
 3. Create a .env file with the following variable:
+    ```bash
     REACT_APP_API_URL=http://localhost:5000
 4. Start the React application:
+    ```bash
     npm start
 
 ### How to Use
-1. Homepage: Browse through blogs and navigate to interesting content.
-2. Forum:
-View posts without logging in.
-Log in to like, comment, or create new posts.
-3. Profile:
-View your profile details and posts.
-Edit your profile information, including profile picture and bio.
+1. **Homepage:** Browse through blogs and navigate to interesting content.
+2. **Forum:**
+- View posts without logging in.
+- Log in to like, comment, or create new posts.
+3. **Profile:**
+- View your profile details and posts.
+- Edit your profile information, including profile picture and bio.
 
 ### Future Enhancements
-Add notifications for post interactions.
-Support for multiple languages.
-Implement advanced search and filtering in the forum.
+- Add notifications for post interactions.
+- Support for multiple languages.
+- Implement advanced search and filtering in the forum.
 
 
 Feel free to clone, explore, and contribute to the PawPaw project!
